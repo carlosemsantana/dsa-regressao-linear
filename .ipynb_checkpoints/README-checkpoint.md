@@ -1,4 +1,4 @@
-# Regressão
+# Regressão Linear
 
 
 Em diversos problemas das áreas médica, biológica, industrial, química, finanças, engenharia entre outras, é de grande interesse verificar se duas ou mais variáveis estão relacionadas de alguma forma. Para expressar esta relação é muito importante estabelecer um modelo matemático. Esse tipo de modelagem ajuda a entender como determinadas variáveis influenciam outra variável, ou seja, verifica como o comportamento de uma(s) variável(is) pode mudar o comportamento de outra. 
