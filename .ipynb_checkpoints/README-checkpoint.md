@@ -17,10 +17,9 @@ Para exemplificar, geraremos um datasset com informações a partir de uma funç
 
 O Modelo Preditivo de Machine Learning é uma função matemática, aproximada, que foi encontrada através do treinamento com dados coletados e que permite fazer as previsões.
 
-```python
-from IPython.display import Image
-Image('img/grafico.png')
-```
+
+<img style="float: left;" src="img/grafico.png">
+
 
 ### Variáveis Dependente e Independente
 
@@ -31,10 +30,9 @@ Uma variável independente x, explica a variação em outra variável, que é ch
     
 
 
-```python
-from IPython.display import Image
-Image('img/previsoes.png')
-```
+
+<img style="float: left;" src="img/previsoes.png">
+
 
 ### O Que Representa a Correlação?
 
@@ -46,52 +44,21 @@ Neste exemplo, a correlação é positiva: à medida que a temperatura aumenta, 
 
 ### Correlação positiva
 
-```python
-import numpy as np
-dados = [0.5*y+3 for y in np.arange(15)]
-dados
-```
 
-```python
-# Grafico
-import matplotlib.pyplot as plt
-plt.plot(dados, '-', dados, 'ro')
-plt.grid(True)
-plt.show()
-```
+<img style="float: left;" src="img/correlacao-positiva.png">
+
 
 ### Correlação negativa
 
-```python
-import numpy as np
-dados2 = [-1*0.5*y+3 for y in np.arange(14)]
-dados2
-```
 
-```python
-# Grafico
-import matplotlib.pyplot as plt
-plt.plot(dados2, '-', dados2, 'ro')
-plt.grid(True)
-plt.show()
-```
+<img style="float: left;" src="img/correlacao-negativa.png">
+
 
 ### Sem correlação
 
-```python
-rng = np.random.default_rng()
-data3 = [9,1,5,9.5,0,10,-9,5,3,9,8,-7,-3,3,2,5,3,4,2,9,0,10,-9,5,3,9,8,-7,-3,6,3,4,5,6]
-rng.shuffle(data3)  # shuffle the list in-place
 
-```
+<img style="float: left;" src="img/sem-correlacao.png">
 
-```python
-# Grafico
-import matplotlib.pyplot as plt
-plt.plot(data3, 'ro')
-plt.grid(True)
-plt.show()
-```
 
 ### Correlação Não Implica Causalidade
 
@@ -123,15 +90,12 @@ Agora que temos os termos básicos definidos, vamos nos aprofundar nos detalhes 
 Uma regressão linear simples é representada pela equação abaixo:
 
 
-```python
-from IPython.display import Image
-Image('img/variaveis.png')
-```
 
-```python
-from IPython.display import Image
-Image('img/funcao.png')
-```
+<img style="float: left;" src="img/variaveis.png">
+
+
+<img style="float: left;" src="img/funcao.png">
+
 
 ***Onde:***
 
@@ -147,19 +111,9 @@ Começamos com o coeficiente a, também chamado de viés ou bias. Considere o ex
 Queremos estimar o peso de um bebê pela idade do bebê em meses. Assumiremos que o peso de um bebê depende exclusivamente de quantos meses ele tem. O bebê tem 3 kg ao nascer e seu peso aumenta a uma taxa constante de 0,75 kg por mês. No final de um ano (12 meses), o gráfico do peso do bebê seria assim:
 
 
-```python
-# Exemplo
-bebe = [3 + (0.75 * i) for i in range(13)]
-bebe
-```
 
-```python
-# Grafico
-import matplotlib.pyplot as plt
-plt.plot( bebe, '-', bebe, 'ro')
-plt.grid(True)
-plt.show()
-```
+<img style="float: left;" src="img/bb-correlacao-positiva.png">
+
 
 No gráfico, o peso do bebê começa em 3 (a, o viés) e aumenta linearmente em 0,75 (b, a inclinação) a cada mês. Observe que, um termo de viés é o valor da variável dependente quando todas as variáveis independentes são 0.
 
@@ -169,25 +123,26 @@ A inclinação (ou slope) de uma linha é a diferença entre as coordenadas x e 
 
 
 
-```python
-b = (12 -3) / (12 - 0) 
-print(b)
-```
+
+~~~python 
+$ b = (12 -3) / (12 - 0)
+
+$ b = 0.75 
+~~~
+
 
 ***Solução de uma Regressão Linear Simples***
 
 Vimos um exemplo simples de como a saída de uma regressão linear simples pode parecer (resolvendo viés e inclinação). Vamos agora encontrar uma maneira mais generalizada de gerar uma linha de regressão. O conjunto de dados fornecido é o seguinte:
 
 
-```python
-idade = [i for i in range(13)]
-idade
-```
 
-```python
-peso = [3 + (0.75 * i) for i in range(13)]
-peso
-```
+~~~python
+$ idade = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+$ peso = [3.0, 3.75, 4.5, 5.25, 6.0, 6.75, 7.5, 8.25, 9.0, 9.75, 10.5, 11.25, 12.0]
+~~~
+
 
 Dado que estamos estimando o peso do bebê com base em sua idade, a regressão linear pode ser construída da seguinte maneira:
 
@@ -225,10 +180,9 @@ Se aplicarmos os valores de a e b nos demais pontos de dados restantes acima, co
 No cenário anterior, vimos que os coeficientes são obtidos usando apenas dois pontos de dados do conjunto total de dados - ou seja, não consideramos a maioria das observações na elaboração de valores ótimos de a e b. Para evitar deixar de fora a maioria dos pontos de dados durante a construção da equação, podemos modificar o objetivo para minimizar o erro quadrático geral (mínimos quadrados comuns) em todos os pontos de dados.
 
 
-```python
-from IPython.display import Image
-Image('img/minimos-quadrados.png')
-```
+
+<img style="float: left;" src="img/minimos-quadrados.png">
+
 
 ### Minimizando a Soma Geral do Erro ao Quadrado
 
@@ -242,10 +196,8 @@ Por exemplo, um erro de +5 em três pontos de dados compensa um erro de –5 em 
 
 2. Em geral, a superpredição em 5% é tão ruim quanto a subpredição em 5%, portanto, consideramos o erro ao quadrado.
 
-```python
-from IPython.display import Image
-Image('img/mmq.png')
-```
+
+<img style="float: left;" src="img/mmq.png">
 
 <!-- #region -->
 Pelo método dos mínimos quadrados calculam-se os parâmetros “a“ e “b” da reta que minimiza estas distâncias ou as diferenças (ou o erro) entre Y e Y’. Esta reta é chamada de reta de regressão. Para que a soma dos quadrados dos erros tenha um valor mínimo, devem-se aplicar os conceitos de cálculo diferencial com derivadas parciais. Como as incógnitas do problema são os coeficientes "a" e "b" estrutura-se um sistema de duas equações. Assim aplicando os conceitos acima referidos monta-se o sistema de equações normais que permitirá extrair os valores de a e b.
@@ -286,10 +238,8 @@ STQ = SQR + SQU
 
 <!-- #endregion -->
 
-```python
-from IPython.display import Image
-Image('img/r2.png')
-```
+<img style="float: left;" src="img/r2.png">
+
 
 R2 é a fração da variância da amostra de Yi explicada (ou prevista) pelas variáveis preditoras. Para um modelo de regressão simples, esta medida mostra quanto do comportamento da variável Y é explicado pelo comportamento de variação da variável X, sempre lembrando que não existe, necessariamente, uma relação de causa e efeito entre as variáveis X e Y. Para um modelo de regressão múltipla, esta medida mostra quanto do comportamento da variável Y é explicado pela variação conjunta das variáveis X consideradas no modelo.
 
@@ -323,6 +273,8 @@ modelo = estimativa.fit()
 print(modelo.summary())
 ```
 
+<img style="float: left;" src="img/sumario.png">
+
 ```python
 # Variável independente
 x = df['Idade']
@@ -334,14 +286,8 @@ valores_previstos = modelo.predict(x)
 valores_previstos
 ```
 
-```python
-# Variável dependente
-y = df['Peso']
-```
+<img style="float: left;" src="img/valores-previstos.png">
 
-```python
-y
-```
 
 ----
 
